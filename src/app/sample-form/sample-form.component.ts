@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import Ajv from 'ajv';
-import { SuperFormGroup, SuperFormControl } from './super-formcontrol';
+import { SuperFormGroup, SuperFormControl, sfs } from './super-formcontrol';
+
+
+
 
 @Component({
   selector: 'app-sample-form',
@@ -29,13 +32,17 @@ export class SampleFormComponent implements OnInit {
     const x = 'x';
 
     this.form = new SuperFormGroup({
-      input: new SuperFormControl({value: '', disabled: false}),
-      input2: new SuperFormControl({value: '', disabled: false},
-        this.shouldShowInput2
+      input: new SuperFormControl(
+        sfs('')
       ),
-      input3: new SuperFormControl({value: '', disabled: true},
-        // this.shouldShowInput3,
-        this.shouldShowInput32,
+      input2: new SuperFormControl(
+        sfs('', this.shouldShowInput2)
+      ),
+      input3: new SuperFormControl(
+        sfs({
+          value: '',
+          disabled: true,
+        }, this.shouldShowInput32)
       ),
     });
   }

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SampleFormComponent } from './sample-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('SampleFormComponent', () => {
   let component: SampleFormComponent;
@@ -50,6 +50,8 @@ describe('SampleFormComponent', () => {
     });
   });
 
+
+
   // fit('should form 3', () => {
   //   // component.form.get('input').disable();
   //   // component.form.get('input2').disable();
@@ -77,4 +79,24 @@ describe('SampleFormComponent', () => {
       input: 'xx',
     });
   });
+
+  //
+  // fit('should form 2', () => {
+  //   const f = new FormControl({
+  //     value: 'x',
+  //     disabled: false,
+  //     x: 'y'
+  //   });
+  //   // const g = new FormGroup({
+  //   //   f,
+  //   // });
+  //
+  //   // expect(g.get('f')).toBe(f);
+  //   f.
+  //   expect(f.value.value).toBe('x');
+  //   // expect(g.get('f').value).toBe('x');
+  //   // expect(g.value.f).toBe('x');
+  //
+  //
+  // });
 });

@@ -1,14 +1,14 @@
-describe('whatever', () => {
-    fit('test', () => {
-        let obj1 = {
+xdescribe('whatever', () => {
+    xit('test', () => {
+        const obj1 = {
             value: false,
             method: () => this.value,
-        }
+        };
 
-        let obj2 = {
+        const obj2 = {
             value: false,
             method: () => true,
-        }
+        };
 
         expect(obj1.method()).toBe(false);
         expect(obj2.method()).toBe(true);
@@ -16,4 +16,4 @@ describe('whatever', () => {
         expect(obj2.method()).toBe(false);
     });
 });
-  
+

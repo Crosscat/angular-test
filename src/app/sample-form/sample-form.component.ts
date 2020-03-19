@@ -12,13 +12,13 @@ export class SampleFormComponent implements OnInit {
 
   public form: FormGroup;
   private schema = {
-    type: "object",
+    type: 'object',
     properties: {
-      input: { type: "number" },
+      input: { type: 'number' },
     },
   };
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
   //   this.form = this.formBuilder.group({
   //     input: new FormControl({value: 'x', disabled: false}),
   //     input2: '',
@@ -26,21 +26,21 @@ export class SampleFormComponent implements OnInit {
 
     // this.form.get("input").disable();
 
+    const x = 'x';
+
     this.form = new SuperFormGroup({
       input: new SuperFormControl({value: '', disabled: false}),
       input2: new SuperFormControl({value: '', disabled: false}, this.shouldShowInput2),
     });
   }
 
-  public shouldShowInput2(): boolean {
-    return this.form.get("input").value === "x";
-  }
+  public shouldShowInput2 = (): boolean => this.form.get('input').value === 'x';
 
   private inputValidator(form: FormGroup): ValidatorFn {
-    return (control: AbstractControl): {[key: string]: any} | null => 
-    form.get("input2").value === "x" ?
+    return (control: AbstractControl): {[key: string]: any} | null =>
+    form.get('input2').value === 'x' ?
       null :
-      {"input2": {value: control.value}};
+      {input2: {value: control.value}};
   }
 
   onSubmit() {
@@ -53,7 +53,7 @@ export class SampleFormComponent implements OnInit {
     //   console.log("INVALID!");
     // }
 
-    let val = this.form.value;
+    const val = this.form.value;
     console.log(val);
   }
 

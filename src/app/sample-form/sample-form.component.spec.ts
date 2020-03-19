@@ -25,7 +25,7 @@ describe('SampleFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should form', () => {
+  it('should form', () => {
     expect(component.form.get('input2').enabled).toBeTrue();
 
     component.form.get('input').setValue('y');
@@ -40,5 +40,41 @@ describe('SampleFormComponent', () => {
 
     component.form.get('input').setValue('y');
     expect(component.form.value.input2).toBeUndefined();
+  });
+
+  it('should form 2', () => {
+    component.form.get('input').disable();
+
+    expect(component.form.value).toEqual({
+      input: '',
+    });
+  });
+
+  // fit('should form 3', () => {
+  //   // component.form.get('input').disable();
+  //   // component.form.get('input2').disable();
+  //   // component.form.get('input3').disable();
+  //
+  //   expect(component.form.value).toEqual({
+  //     input: '',
+  //     input2: '',
+  //     input3: ''
+  //   });
+  // });
+
+  fit('should 3', () => {
+    expect(component.form.get('input').enabled).toBeTrue();
+    expect(component.form.get('input2').enabled).toBeTrue();
+    expect(component.form.get('input3').disabled).toBeTrue();
+    component.form.get('input').setValue('x');
+    component.form.get('input2').setValue('y');
+    expect(component.form.get('input2').enabled).toBeTrue();
+    expect(component.form.get('input3').enabled).toBeTrue();
+    component.form.get('input').setValue('xx');
+    expect(component.form.get('input2').disabled).toBeTrue();
+    expect(component.form.get('input3').disabled).toBeTrue();
+    expect(component.form.value).toEqual({
+      input: 'xx',
+    });
   });
 });

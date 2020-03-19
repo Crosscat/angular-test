@@ -30,11 +30,21 @@ export class SampleFormComponent implements OnInit {
 
     this.form = new SuperFormGroup({
       input: new SuperFormControl({value: '', disabled: false}),
-      input2: new SuperFormControl({value: '', disabled: false}, this.shouldShowInput2),
+      input2: new SuperFormControl({value: '', disabled: false},
+        this.shouldShowInput2
+      ),
+      input3: new SuperFormControl({value: '', disabled: true},
+        // this.shouldShowInput3,
+        this.shouldShowInput32,
+      ),
     });
   }
 
   public shouldShowInput2 = (): boolean => this.form.get('input').value === 'x';
+
+  public shouldShowInput3 = (): boolean => this.form.get('input2').value === 'y';
+
+  public shouldShowInput32 = (): boolean => this.form.value.input2 === 'y';
 
   private inputValidator(form: FormGroup): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null =>

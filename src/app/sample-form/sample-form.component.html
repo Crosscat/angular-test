@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Label</label>
+    <div><input type="text" formControlName="input" /></div>
+    <label>Label 2</label>
+    <div><input type="text" formControlName="input2" enableIf="shouldShowInput2()" /></div>
+    <button type="submit">Submit</button>
+</form>
